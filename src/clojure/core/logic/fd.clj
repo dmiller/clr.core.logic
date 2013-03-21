@@ -232,8 +232,8 @@
 ;;; TODO: Figure out why we can't do this (extend-to-fd System.Int16) (extend-to-fd System.UInt16)           ;;; (extend-to-fd java.lang.Short)
 ;;; TODO: Figure out why we can't do this (extend-to-fd System.Int32) (extend-to-fd System.UInt32)           ;;; (extend-to-fd java.lang.Integer)
 ;;; TODO: Figure out why we can't do this (extend-to-fd System.Int64) (extend-to-fd System.UInt64)           ;;; (extend-to-fd java.lang.Long)
-(extend-to-fd clojure.lang.BigInteger)                             ;;; (extend-to-fd java.math.BigInteger)
-(extend-to-fd clojure.lang.BigInt)
+;;; TODO: Figure out why we can't do this (extend-to-fd clojure.lang.BigInteger)                             ;;; (extend-to-fd java.math.BigInteger)
+;;; TODO: Figure out why we can't do this (extend-to-fd clojure.lang.BigInt)
 
 (declare interval)
 
@@ -1108,7 +1108,7 @@
   ([() _] (<= 0 n))
   ([[h . t] n]
      (fresh [m]
-       (in m (interval 0 Integer/MAX_VALUE))
+       (in m (interval 0 Int32/MaxValue))                  ;;; Integer/MAX_VALUE
        (+ m 1 n)
        (bounded-listo t m))))
 

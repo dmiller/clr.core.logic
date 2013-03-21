@@ -3,7 +3,7 @@
   (:use [clojure.core.logic.protocols]
         [clojure.core.logic :exclude [is] :as l]
         clojure.test)
-  ;;; TODO: (:require [clojure.core.logic.fd :as fd])
+  (:require [clojure.core.logic.fd :as fd])
   (:require [clojure.core.logic.unifier :as u])
   (:require [clojure.pprint :as pp]))
 

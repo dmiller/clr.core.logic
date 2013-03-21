@@ -273,7 +273,7 @@
   Object
   (Equals [this o]                                                    ;;; equals
     (or (identical? this o)
-        (and (.. this getClass (isInstance o))
+        (and (.. this GetType (IsInstanceOfType o))                   ;;; getClass isInstance
              (= s (:s o)))))
   ;; TODO: prn doesn't work anymore on empty-s, why not?
   (ToString [_] (str s))                                              ;;; toString
@@ -307,7 +307,7 @@
       (throw (Exception. (str "key must be a logic var")))))
   (empty [this] empty-s)
   (equiv [this o]
-    (.equals this o))
+    (.Equals this o))                                                ;;; equals
 
   clojure.lang.Associative
   (containsKey [this k]
@@ -733,18 +733,18 @@
   LConsPrint
   (toShortString [this]
     (cond
-     (.. this getClass (isInstance d)) (str a " " (toShortString d))
+     (.. this GetType (IsInstanceOfType d)) (str a " " (toShortString d))              ;;; getClass isInstance
      :else (str a " . " d )))
 
   Object
   (ToString [this] (cond                                                 ;;; toString
-                    (.. this getClass (IsInstanceOfType d))              ;;; isInstance
+                    (.. this GetType (IsInstanceOfType d))              ;;;  getClass isInstance
                       (str "(" a " " (toShortString d) ")")
                     :else (str "(" a " . " d ")")))
 
   (Equals [this o]                                                       ;;; equals
     (or (identical? this o)
-        (and (.. this getClass (IsInstanceOfType o))                     ;;; isInstance
+        (and (.. this GetType (IsInstanceOfType o))                     ;;;  getClass isInstance
              (loop [me this
                     you o]
                (cond
