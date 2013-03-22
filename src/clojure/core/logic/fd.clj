@@ -228,12 +228,12 @@
      (~'intervals [this#]
        (list this#))))
 
-;;; TODO: Figure out why we can't do this (extend-to-fd System.Byte)  (extend-to-fd System.SByte)            ;;; (extend-to-fd java.lang.Byte)
-;;; TODO: Figure out why we can't do this (extend-to-fd System.Int16) (extend-to-fd System.UInt16)           ;;; (extend-to-fd java.lang.Short)
-;;; TODO: Figure out why we can't do this (extend-to-fd System.Int32) (extend-to-fd System.UInt32)           ;;; (extend-to-fd java.lang.Integer)
-;;; TODO: Figure out why we can't do this (extend-to-fd System.Int64) (extend-to-fd System.UInt64)           ;;; (extend-to-fd java.lang.Long)
-;;; TODO: Figure out why we can't do this (extend-to-fd clojure.lang.BigInteger)                             ;;; (extend-to-fd java.math.BigInteger)
-;;; TODO: Figure out why we can't do this (extend-to-fd clojure.lang.BigInt)
+;;; Cannot (extend-to-fd System.Byte)  (extend-to-fd System.SByte)            ;;; (extend-to-fd java.lang.Byte)
+;;; Cannot (extend-to-fd System.Int16) (extend-to-fd System.UInt16)           ;;; (extend-to-fd java.lang.Short)
+;;; Cannot (extend-to-fd System.Int32) (extend-to-fd System.UInt32)           ;;; (extend-to-fd java.lang.Integer)
+(extend-to-fd System.Int64) ;;; Cannot (extend-to-fd System.UInt64)           ;;; (extend-to-fd java.lang.Long)
+(extend-to-fd clojure.lang.BigInteger)                                        ;;; (extend-to-fd java.math.BigInteger)
+(extend-to-fd clojure.lang.BigInt)
 
 (declare interval)
 
