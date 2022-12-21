@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>clojure.core.logic</PackageId>
+		<RootNamespace>clojure.core</RootNamespace>
+		<Title>clojure.core.logic</Title>
+		<Product>clojure.core.logic</Product>
+		<AssemblyTitle>clojure.core.logic</AssemblyTitle>
+		<Authors>ClojureCLR contributors</Authors>
+		<Description>A port of core.logic to ClojureCLR.</Description>
+		<Copyright>Copyright © Rich Hickey, David Nolen, and ClojureCLR contributors 2022</Copyright>
+		<PackageLicenseExpression>EPL-1.0</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/clojure/clojure.tools.namesapce</RepositoryUrl>
+		<Company>ClojureCLR contributors</Company>
+		<PackageTags>Clojure;ClojureCLR</PackageTags>
+		<Version>1.0.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource CopyToOutputDirectory="Never" Include="..\..\clojure\clojure\core\**\*" />
+	</ItemGroup>
+
+
+</Project>

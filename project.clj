@@ -1,20 +1,23 @@
-(defproject org.clojure.clr/tools.namespace "0.8.1"
-  :description "Port of clojure.org/core.logic to ClojureCLR"
+(defproject org.clojure.clr/core.logic "1.0.1"
+  :description "A port of core.logic to ClojureCLR"
   :url "https://github.com/clojure/clr.core.logic"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies []
-  :min-lein-version "2.0.0"
-  :plugins [[lein-clr "0.2.0"]]
+  :source-paths ["src/main/clojure"]
+  :test-paths ["src/test/clojure"] 
   :deploy-repositories [["clojars" {:url "https://clojars.org/repo/"
-                                    :sign-releases  false}]]									
-  :clr {:cmd-templates  {:clj-exe   [#_"mono" [CLJCLR15_40 %1]]
-                         :clj-dep   [#_"mono" ["target/clr/clj/Debug 4.0" %1]]
-                         :clj-url   "https://github.com/downloads/clojure/clojure-clr/clojure-clr-1.4.0-Debug-4.0.zip"
-                         :clj-zip   "clojure-clr-1.4.0-Debug-4.0.zip"
+                                    :sign-releases  false}]]
+  :warn-on-reflection true
+  :min-lein-version "2.0.0"
+  :plugins [[lein-clr "0.2.2"]]
+  :clr {:cmd-templates  {:clj-exe   [[?PATH "mono"] [CLJCLR14_40 %1]]
+                         :clj-dep   [[?PATH "mono"] ["target/clr/clj/Debug 4.0" %1]]
+                         :clj-url   "http://sourceforge.net/projects/clojureclr/files/clojure-clr-1.4.1-Debug-4.0.zip/download"
+                         :clj-zip   "clojure-clr-1.4.1-Debug-4.0.zip"
                          :curl      ["curl" "--insecure" "-f" "-L" "-o" %1 %2]
-                         :nuget-ver [#_"mono" [*PATH "nuget.exe"] "install" %1 "-Version" %2]
-                         :nuget-any [#_"mono" [*PATH "nuget.exe"] "install" %1]
+                         :nuget-ver [[?PATH "mono"] [*PATH "nuget.exe"] "install" %1 "-Version" %2]
+                         :nuget-any [[?PATH "mono"] [*PATH "nuget.exe"] "install" %1]
                          :unzip     ["unzip" "-d" %1 %2]
                          :wget      ["wget" "--no-check-certificate" "--no-clobber" "-O" %1 %2]}
         ;; for automatic download/unzip of ClojureCLR,

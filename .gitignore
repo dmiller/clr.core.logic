@@ -1,10 +1,8 @@
-pom.xml
-/lib/
-/classes/
-/targets/
 /target
+/lib
 /classes
 /checkouts
+pom.xml
 *.jar
 *.class
 *.dll
@@ -15,8 +13,9 @@ pom.xml
 .lein-plugins
 
 #Visual Studio artifacts
-bin
-obj
+bin/
+obj/
+.vs/
 *.user
 *.suo
 *.nupkg
